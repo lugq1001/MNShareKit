@@ -42,7 +42,7 @@ static CGFloat cancelButtonH = 44.0;
     _cancelButton.frame = CGRectMake(0, platformViewH - cancelButtonH, MNDeviceWidth, cancelButtonH);
     [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [_platformView addSubview:_cancelButton];
-    
+     
     
     [self addSubview:_platformView];
 }
