@@ -1,5 +1,5 @@
 //
-//  ShareView.h
+//  MNShareView.h
 //  MNShareKit
 //
 //  Created by luguangqing on 16/2/3.
@@ -8,9 +8,12 @@
 
 @import UIKit;
 
-@interface ShareView : UIView
+@interface MNShareView : UIView
 
 
+@property (nonatomic) UIView *platformView;
 
+
+- (void)show;
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "MNShareKit.h"
 
 @interface ViewController ()
+
+@property (nonatomic) MNShareKit *shareKit;
 
 @end
 
@@ -16,16 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _shareKit = [MNShareKit new];
 }
 
 - (IBAction)share:(id)sender {
-    
+    [_shareKit showInView:self.view];
 }
 
 @end

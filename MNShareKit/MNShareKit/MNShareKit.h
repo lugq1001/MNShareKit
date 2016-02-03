@@ -7,6 +7,10 @@
 //
 
 @import Foundation;
+@import UIKit;
+
+#define MNDeviceWidth         [[UIScreen mainScreen] bounds].size.width
+#define MNDeviceHeight        [[UIScreen mainScreen] bounds].size.height
 
 
 /**
@@ -38,6 +42,6 @@ typedef NS_ENUM(NSInteger, MNShareKitPlatform) {
 
 @interface MNShareKit : NSObject
 
-
+- (void)showInView:(UIView *)view;
 
 @end
