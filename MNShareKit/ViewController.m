@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MNShareKit.h"
 
-@interface ViewController ()
+@interface ViewController () <MNShareKitDelegate>
 
 @property (nonatomic) MNShareKit *shareKit;
 
@@ -19,11 +19,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _shareKit = [MNShareKit new];
+    NSMutableArray *platforms = [NSMutableArray new];
+    if ([MNShareKit weChatInstalled]) {
+        [platforms addObject:[MNPlatform create:MNPlatformTypeWeChatFriend]];
+        [platforms addObject:[MNPlatform create:MNPlatformTypeWeChatTimeline]];
+    }
+    
+    [platforms addObject:[MNPlatform create:MNPlatformTypeSinaWeibo]];
+    [platforms addObject:[MNPlatform create:MNPlatformTypeQQFriend]];
+    [platforms addObject:[MNPlatform create:MNPlatformTypeQQZone]];
+    
+    
+    _shareKit = [[MNShareKit alloc] initWithPlatforms:platforms delegate:self];
 }
 
 - (IBAction)share:(id)sender {
     [_shareKit showInView:self.view];
+}
+
+- (void)shareKitDidPlatformSelected:(MNPlatform *)platform {
+    [_shareKit share:@"title" desc:@"desc" thumbnial:[UIImage imageNamed:@""] url:@"http://www.baidu.com" platform:platform];
 }
 
 @end
