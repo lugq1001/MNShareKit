@@ -38,7 +38,7 @@
 }
 
 - (void)shareKitDidPlatformSelected:(MNPlatform *)platform {
-    [_shareKit share:@"title" desc:@"desc" thumbnial:[UIImage imageNamed:@""] url:@"http://www.baidu.com" platform:platform];
+    [_shareKit share:@"title" content:@"content" thumbnial:[UIImage imageNamed:@"ic_app"] url:@"http://www.baidu.com" platform:platform];
 }
 
 @end

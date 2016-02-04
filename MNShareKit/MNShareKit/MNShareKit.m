@@ -8,8 +8,9 @@
 
 #import "MNShareKit.h"
 #import "MNShareView.h"
-#import "WXApi.h"
 #import "MNPlatformWeChat.h"
+#import "MNPlatformSinaWeibo.h"
+
 
 
 @interface MNShareKit () <MNShareViewDelegate>
@@ -55,7 +56,10 @@ static NSInteger shareTag = 52119944;
 
 + (void)weChatRegist {
     [WXApi registerApp:WeChatAppID];
+}
 
++ (void)sinaWeiboRegist {
+    [WeiboSDK registerApp:SinaWeiboAppID];
 }
 
 + (BOOL)weChatInstalled {
@@ -69,7 +73,7 @@ static NSInteger shareTag = 52119944;
 }
 
 - (void)share:(NSString *)title
-         desc:(NSString *)desc
+      content:(NSString *)content
     thumbnial:(UIImage *)thumbnial
           url:(NSString *)url
      platform:(MNPlatform *)platform
@@ -80,8 +84,10 @@ static NSInteger shareTag = 52119944;
     } else if (platform.type == MNPlatformTypeWeChatTimeline) {
         NSData *data = UIImagePNGRepresentation(thumbnial);
         [MNPlatformWeChat shareToTimeline:title thumbnail:data mediaTagName:@"" url:url];
+    } else if (platform.type == MNPlatformTypeSinaWeibo) {
+        NSData *data = UIImagePNGRepresentation(thumbnial);
+        [MNPlatformSinaWeibo share:content imageData:data];
     }
-    
 }
 
 

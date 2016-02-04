@@ -9,8 +9,10 @@
 @import Foundation;
 @import UIKit;
 #import "WXApi.h"
+#import "WeiboSDK.h"
 
-@interface MNPlatformCallback : NSObject <WXApiDelegate>
+
+@interface MNPlatformCallback : NSObject <WXApiDelegate, WeiboSDKDelegate>
 
 + (MNPlatformCallback *)sharedInstance;
 

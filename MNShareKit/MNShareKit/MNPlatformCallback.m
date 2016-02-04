@@ -8,6 +8,7 @@
 
 #import "MNPlatformCallback.h"
 
+
 static MNPlatformCallback *callback = nil;
 
 @implementation MNPlatformCallback
@@ -27,6 +28,15 @@ static MNPlatformCallback *callback = nil;
 }
 
 - (void)onResp:(BaseResp *)resp {
+    
+}
+
+#pragma mark - 新浪微博
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
 }
 

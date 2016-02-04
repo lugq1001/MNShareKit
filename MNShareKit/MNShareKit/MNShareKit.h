@@ -10,11 +10,15 @@
 @import UIKit;
 #import "MNPlatform.h"
 #import "MNPlatformCallback.h"
+#import "WXApi.h"
+#import "WeiboSDK.h"
 
 #define MNDeviceWidth         [[UIScreen mainScreen] bounds].size.width
 #define MNDeviceHeight        [[UIScreen mainScreen] bounds].size.height
 
 #define WeChatAppID @"wx20ec458b2c5ab93b"
+#define SinaWeiboAppID @"2709976872"
+
 
 @protocol MNShareKitDelegate <NSObject>
 
@@ -33,9 +37,10 @@
 
 + (void)weChatRegist;
 + (BOOL)weChatInstalled;
++ (void)sinaWeiboRegist;
 
 - (void)share:(NSString *)title
-         desc:(NSString *)desc
+      content:(NSString *)content
     thumbnial:(UIImage *)thumbnial
           url:(NSString *)url
      platform:(MNPlatform *)platform;

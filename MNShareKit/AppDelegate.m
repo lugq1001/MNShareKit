@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MNShareKit.h"
-#import "WXApi.h"
+
+
 
 @interface AppDelegate ()
 
@@ -18,8 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
     [MNShareKit weChatRegist];
+    
+    [MNShareKit sinaWeiboRegist];
+    
     return YES;
 }
 
@@ -60,7 +64,7 @@
     } else if ([urlStr hasPrefix:@"tencent"]) {
         //return TencentOAuth.HandleOpenURL(url)
     } else if ([urlStr hasPrefix:@"wb"]) {
-        //return WeiboSDK.handleOpenURL(url, delegate: SinaWeiboHelper.instance)
+        return [WeiboSDK handleOpenURL:url delegate:[MNPlatformCallback sharedInstance]];
     }
     return true;
 }
