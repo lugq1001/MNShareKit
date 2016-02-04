@@ -21,9 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [MNShareKit weChatRegist];
-    
     [MNShareKit sinaWeiboRegist];
-    
     [MNShareKit qqRegist];
     return YES;
 }
