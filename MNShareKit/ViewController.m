@@ -26,9 +26,10 @@
     }
     
     [platforms addObject:[MNPlatform create:MNPlatformTypeSinaWeibo]];
-    [platforms addObject:[MNPlatform create:MNPlatformTypeQQFriend]];
-    [platforms addObject:[MNPlatform create:MNPlatformTypeQQZone]];
-    
+    if ([MNShareKit qqInstalled]) {
+        [platforms addObject:[MNPlatform create:MNPlatformTypeQQFriend]];
+        [platforms addObject:[MNPlatform create:MNPlatformTypeQQZone]];
+    }
     
     _shareKit = [[MNShareKit alloc] initWithPlatforms:platforms delegate:self];
 }

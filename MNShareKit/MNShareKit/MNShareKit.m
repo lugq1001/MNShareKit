@@ -10,6 +10,7 @@
 #import "MNShareView.h"
 #import "MNPlatformWeChat.h"
 #import "MNPlatformSinaWeibo.h"
+#import "MNPlatformQQ.h"
 
 
 
@@ -21,6 +22,8 @@
 @end
 
 @implementation MNShareKit
+
+static TencentOAuth *oauth;
 
 static NSInteger shareTag = 52119944;
 
@@ -66,6 +69,14 @@ static NSInteger shareTag = 52119944;
     return [WXApi isWXAppInstalled];
 }
 
++ (BOOL)qqInstalled {
+    return [TencentOAuth iphoneQQInstalled];
+}
+
++ (void)qqRegist {
+    oauth = [[TencentOAuth alloc] initWithAppId:QQAppID andDelegate:[MNPlatformCallback sharedInstance]];
+}
+
 #pragma mark - MNShareViewDelegate
 - (void)shareToPlatform:(MNPlatform *)platform {
     [_delegate shareKitDidPlatformSelected:platform];
@@ -87,6 +98,12 @@ static NSInteger shareTag = 52119944;
     } else if (platform.type == MNPlatformTypeSinaWeibo) {
         NSData *data = UIImagePNGRepresentation(thumbnial);
         [MNPlatformSinaWeibo share:content imageData:data];
+    } else if (platform.type == MNPlatformTypeQQFriend) {
+        NSData *data = UIImagePNGRepresentation(thumbnial);
+        [MNPlatformQQ shareToQQ:title content:content thumbnail:data url:url];
+    } else if (platform.type == MNPlatformTypeQQZone) {
+        NSData *data = UIImagePNGRepresentation(thumbnial);
+        [MNPlatformQQ shareToQZone:title content:content thumbnail:data url:url];
     }
 }
 

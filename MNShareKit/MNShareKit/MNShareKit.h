@@ -12,13 +12,16 @@
 #import "MNPlatformCallback.h"
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/TencentApiInterface.h>
 
 #define MNDeviceWidth         [[UIScreen mainScreen] bounds].size.width
 #define MNDeviceHeight        [[UIScreen mainScreen] bounds].size.height
 
 #define WeChatAppID @"wx20ec458b2c5ab93b"
 #define SinaWeiboAppID @"2709976872"
-
+#define QQAppID @"1104695617"
 
 @protocol MNShareKitDelegate <NSObject>
 
@@ -38,6 +41,8 @@
 + (void)weChatRegist;
 + (BOOL)weChatInstalled;
 + (void)sinaWeiboRegist;
++ (BOOL)qqInstalled;
++ (void)qqRegist;
 
 - (void)share:(NSString *)title
       content:(NSString *)content

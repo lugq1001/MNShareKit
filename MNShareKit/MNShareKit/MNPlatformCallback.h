@@ -10,9 +10,10 @@
 @import UIKit;
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/TencentApiInterface.h>
 
-
-@interface MNPlatformCallback : NSObject <WXApiDelegate, WeiboSDKDelegate>
+@interface MNPlatformCallback : NSObject <WXApiDelegate, WeiboSDKDelegate, TencentSessionDelegate>
 
 + (MNPlatformCallback *)sharedInstance;
 

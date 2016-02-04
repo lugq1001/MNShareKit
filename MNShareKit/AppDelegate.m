@@ -24,6 +24,7 @@
     
     [MNShareKit sinaWeiboRegist];
     
+    [MNShareKit qqRegist];
     return YES;
 }
 
@@ -62,7 +63,7 @@
     if ([urlStr hasPrefix:@"wx"]) {
         return [WXApi handleOpenURL:url delegate:[MNPlatformCallback sharedInstance]];
     } else if ([urlStr hasPrefix:@"tencent"]) {
-        //return TencentOAuth.HandleOpenURL(url)
+        return [TencentOAuth HandleOpenURL:url];
     } else if ([urlStr hasPrefix:@"wb"]) {
         return [WeiboSDK handleOpenURL:url delegate:[MNPlatformCallback sharedInstance]];
     }

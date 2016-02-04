@@ -43,6 +43,9 @@
 		310482011C634F7200385558 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310482001C634F7200385558 /* ImageIO.framework */; };
 		310482031C634F8500385558 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310482021C634F8500385558 /* Security.framework */; };
 		310482051C634F9600385558 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310482041C634F9600385558 /* CoreGraphics.framework */; };
+		3104820A1C63548B00385558 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310482081C63548B00385558 /* TencentOpenAPI.framework */; };
+		3104820B1C63548B00385558 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 310482091C63548B00385558 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		3104820E1C6355F900385558 /* MNPlatformQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3104820D1C6355F900385558 /* MNPlatformQQ.m */; };
 		319AD8451C619E79008E8DB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 319AD8441C619E79008E8DB4 /* main.m */; };
 		319AD8481C619E79008E8DB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319AD8471C619E79008E8DB4 /* AppDelegate.m */; };
 		319AD84B1C619E79008E8DB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319AD84A1C619E79008E8DB4 /* ViewController.m */; };
@@ -111,6 +114,10 @@
 		310482001C634F7200385558 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		310482021C634F8500385558 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		310482041C634F9600385558 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		310482081C63548B00385558 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		310482091C63548B00385558 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		3104820C1C6355F900385558 /* MNPlatformQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPlatformQQ.h; sourceTree = "<group>"; };
+		3104820D1C6355F900385558 /* MNPlatformQQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPlatformQQ.m; sourceTree = "<group>"; };
 		319AD8401C619E79008E8DB4 /* MNShareKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNShareKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		319AD8441C619E79008E8DB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		319AD8461C619E79008E8DB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +144,7 @@
 				310482011C634F7200385558 /* ImageIO.framework in Frameworks */,
 				310481FD1C634F4C00385558 /* QuartzCore.framework in Frameworks */,
 				310481FB1C634F3F00385558 /* CoreText.framework in Frameworks */,
+				3104820A1C63548B00385558 /* TencentOpenAPI.framework in Frameworks */,
 				310481F91C634E2700385558 /* libc++abi.tbd in Frameworks */,
 				310481E01C6334A400385558 /* libsqlite3.0.tbd in Frameworks */,
 				310481DC1C63348F00385558 /* libz.tbd in Frameworks */,
@@ -160,6 +168,8 @@
 				310481C81C6307B300385558 /* MNPlatformWeChat.m */,
 				310481F51C634A4100385558 /* MNPlatformSinaWeibo.h */,
 				310481F61C634A4100385558 /* MNPlatformSinaWeibo.m */,
+				3104820C1C6355F900385558 /* MNPlatformQQ.h */,
+				3104820D1C6355F900385558 /* MNPlatformQQ.m */,
 			);
 			path = MNPlatform;
 			sourceTree = "<group>";
@@ -191,6 +201,7 @@
 			children = (
 				310481CB1C63087300385558 /* WeChat */,
 				310481E41C6349DD00385558 /* SinaWibo */,
+				310482061C63548B00385558 /* Tencent */,
 			);
 			path = framework;
 			sourceTree = "<group>";
@@ -241,6 +252,23 @@
 				310481F21C6349DD00385558 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		310482061C63548B00385558 /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				310482071C63548B00385558 /* iOS_OpenSDK_2.9.5_all */,
+			);
+			path = Tencent;
+			sourceTree = "<group>";
+		};
+		310482071C63548B00385558 /* iOS_OpenSDK_2.9.5_all */ = {
+			isa = PBXGroup;
+			children = (
+				310482081C63548B00385558 /* TencentOpenAPI.framework */,
+				310482091C63548B00385558 /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = iOS_OpenSDK_2.9.5_all;
 			sourceTree = "<group>";
 		};
 		319AD8371C619E79008E8DB4 = {
@@ -392,6 +420,7 @@
 				310481D31C63087300385558 /* read_me.txt in Resources */,
 				310481B01C62F8DA00385558 /* QQ@2x.png in Resources */,
 				310481B51C62F8DA00385558 /* SinaWeibo@1x.png in Resources */,
+				3104820B1C63548B00385558 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				310481951C62EECE00385558 /* MNPlatformCell.xib in Resources */,
 				310481C21C62FA1400385558 /* QQZone@2x.png in Resources */,
 				310481BC1C62F8DA00385558 /* WeChatTimeline@2x.png in Resources */,
@@ -407,6 +436,7 @@
 			files = (
 				319AD84B1C619E79008E8DB4 /* ViewController.m in Sources */,
 				310481C91C6307B300385558 /* MNPlatformWeChat.m in Sources */,
+				3104820E1C6355F900385558 /* MNPlatformQQ.m in Sources */,
 				319AD85D1C619FA5008E8DB4 /* MNShareKit.m in Sources */,
 				3104819D1C62F7C000385558 /* MNPlatform.m in Sources */,
 				319AD8601C61A06F008E8DB4 /* MNShareView.m in Sources */,
@@ -525,6 +555,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MNShareKit/MNShareKit/framework/Tencent/iOS_OpenSDK_2.9.5_all",
+				);
 				INFOPLIST_FILE = MNShareKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -543,6 +577,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MNShareKit/MNShareKit/framework/Tencent/iOS_OpenSDK_2.9.5_all",
+				);
 				INFOPLIST_FILE = MNShareKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

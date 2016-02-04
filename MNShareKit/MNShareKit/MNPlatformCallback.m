@@ -40,4 +40,17 @@ static MNPlatformCallback *callback = nil;
     
 }
 
+#pragma mark - 腾讯
+- (void)tencentDidLogin {
+    
+}
+
+-(void)tencentDidNotLogin:(BOOL)cancelled {
+    
+}
+
+-(void)tencentDidNotNetWork {
+    
+}
+
 @end
