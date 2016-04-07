@@ -50,4 +50,14 @@
           url:(NSString *)url
      platform:(MNPlatform *)platform;
 
+- (void)shareImage:(UIImage *)image
+         thumbnial:(UIImage *)thumbnial
+               url:(NSString *)url
+          platform:(MNPlatform *)platform;
+@end
+
+@interface UIImage (MNShareKit)
+
+- (UIImage *)scaleToSize:(CGSize)size;
+
 @end

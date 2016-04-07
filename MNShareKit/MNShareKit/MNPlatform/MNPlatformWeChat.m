@@ -53,4 +53,43 @@ mediaTagName:(NSString *)mediaTagName
     [WXApi sendReq:req];
 }
 
++ (void)shareImageToFriend:(NSData *)image
+                 thumbnail:(NSData *)thumbnail
+                       url:(NSString *)url
+{
+    [self shareImage:image url:url thumbnail:thumbnail scene:WXSceneSession];
+}
+
++ (void)shareImageToTimeline:(NSData *)image
+                   thumbnail:(NSData *)thumbnail
+                         url:(NSString *)url
+{
+    [self shareImage:image url:url thumbnail:thumbnail scene:WXSceneTimeline];
+}
+
++ (void)shareImage:(NSData *)image
+               url:(NSString *)url
+         thumbnail:(NSData *)thumbnail
+             scene:(int)scene
+{
+    WXMediaMessage *message = [WXMediaMessage new];
+    WXImageObject *imageObj = [WXImageObject new];
+    message.mediaObject = imageObj;
+    
+    if (scene == WXSceneSession) {// 好友
+        message.thumbData = thumbnail;
+        imageObj.imageUrl = url;
+        imageObj.imageData = image;
+    } else { // 朋友圈
+        imageObj.imageData = image;
+    }
+    
+    SendMessageToWXReq *req = [SendMessageToWXReq new];
+    req.bText = false;
+    req.scene = scene;
+    req.message = message;
+    [WXApi sendReq:req];
+}
+
+
 @end

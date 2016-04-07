@@ -12,11 +12,13 @@
 
 + (void)shareToQQ:(NSString *)title
           content:(NSString *)content
+            image:(NSData *)image
         thumbnail:(NSData *)thumbnail
               url:(NSString *)url;
 
 + (void)shareToQZone:(NSString *)title
              content:(NSString *)content
+               image:(NSData *)image
            thumbnail:(NSData *)thumbnail
                  url:(NSString *)url;
 

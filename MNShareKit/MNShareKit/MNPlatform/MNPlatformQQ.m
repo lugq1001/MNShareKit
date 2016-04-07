@@ -13,35 +13,40 @@
 
 + (void)shareToQQ:(NSString *)title
           content:(NSString *)content
+            image:(NSData *)image
         thumbnail:(NSData *)thumbnail
               url:(NSString *)url
 {
-    [self share:title content:content thumbnail:thumbnail url:url qzone:false];
+    [self share:title content:content image: image thumbnail:thumbnail url:url qzone:false];
 }
 
 + (void)shareToQZone:(NSString *)title
              content:(NSString *)content
+               image:(NSData *)image
            thumbnail:(NSData *)thumbnail
                  url:(NSString *)url
 {
-    [self share:title content:content thumbnail:thumbnail url:url qzone:true];
+    [self share:title content:content image: image thumbnail:thumbnail url:url qzone:true];
 }
 
 + (void)share:(NSString *)title
       content:(NSString *)content
+        image:(NSData *)image
     thumbnail:(NSData *)thumbnail
           url:(NSString *)url
         qzone:(BOOL)qzone
 {
-    NSString *urlStr = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURL *shareUrl = [NSURL URLWithString:urlStr];
-    QQApiNewsObject *msg = [QQApiNewsObject objectWithURL:shareUrl title:title description:content previewImageData:thumbnail];
-    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:msg];
+    //    NSString *urlStr = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    //    NSURL *shareUrl = [NSURL URLWithString:urlStr];
+    //    QQApiNewsObject *msg = [QQApiNewsObject objectWithURL:shareUrl title:title description:content previewImageData:thumbnail];
+    QQApiImageObject *imgObj = [[QQApiImageObject alloc] initWithData:image previewImageData:thumbnail title:title description:content];
+    
+    
+    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:imgObj];
     if (qzone) {
         [QQApiInterface SendReqToQZone:req];
     } else {
         [QQApiInterface sendReq:req];
     }
 }
-
 @end

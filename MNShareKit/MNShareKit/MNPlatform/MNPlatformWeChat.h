@@ -23,4 +23,12 @@
            mediaTagName:(NSString *)mediaTagName
                     url:(NSString *)url;
 
++ (void)shareImageToFriend:(NSData *)image
+                 thumbnail:(NSData *)thumbnail
+                       url:(NSString *)url;
+
++ (void)shareImageToTimeline:(NSData *)image
+                   thumbnail:(NSData *)thumbnail
+                         url:(NSString *)url;
+
 @end
